@@ -1,0 +1,66 @@
+Partie 1
+
+1.5 - Questions intermédiaires
+
+1. Structure: commande chemin version_protocole
+2. La ligne vide représente la fin des en-têtes
+3. Le serveur ne répond pas si on oublie la ligne vide
+4. Le code 200 indique le succès de la requête, 404 indique que la
+ressource n'a pas été trouvée et 301 indique une redirection
+5. HTTP/1.1 200 OK; cette ligne contient la version du protocole et un code
+qui indique l'état de la requête
+6. En-têtes de la requête:
+	Date: Tue, 17 Jun 2025 06:52:41 GMT
+	Content-Type: text/html
+	Transfer-Encoding: chunked
+	Connection: keep-alive
+	Last-Modified: Thu, 02 Jun 2016 06:01:08 GMT
+	Cache-Control: max-age=600
+	Expires: Tue, 17 Jun 2025 07:02:41 GMT
+	Vary: Accept-Encoding,User-Agent
+	cf-cache-status: DYNAMIC
+	Report-To: …
+	NEL: …
+	Server: cloudflare
+	CF-RAY: …
+	alt-svc: …
+	server-timing: …
+7. Première ligne non en-tête: cc
+Elle est séparée de l'en-tête par une ligne vide
+8. On obtient une erreur 404
+9. On récupère aussi du HTML mais avec un contenu différent
+	...	
+	<h1>Not Found</h1>
+	<p>The requested URL was not found on this server.</p>
+	…
+
+Partie 2
+
+2.1.2
+1 & 2. Le client reçoit bien une réponse, il voit les en-têtes et Hello World:
+	HTTP/1.1 200 OK
+	Content-Type: text/plain
+	Content-Length: 12
+	Connection: close
+
+	Hello World!
+3 & 4. L'en-tête est mis à jour
+5. telnet affiche le message mais pas un navigateur web
+
+2.2.3
+1. Structure: commande chemin version_protocole; on doit extraire ces 3 éléments
+2. La méthode split ne va pas extraire le nombre correct de valeurs. On peut utiliser un try catch
+3. Elle contient l'url saisie par l'utilisateur
+4. Il ne fait rien pour l'instant
+5 & 6. Le serveur retourne une erreur 404. On peut ajouter un texte plus explicite pour les utilisateurs qui ne sont pas familier avec les codes HTTP
+8. Il faut modifier la structure if elif else, ce qui n'est vraiment pas idéal
+9. En fonction de comment on traite les URL, il pourrait accéder à notre machine. Dans l'idéal, il faudrait ignorer ce genre d'URL pour n'accepter qu'une liste précise
+
+2.3.2
+1. GET /date HTTP/1.1; on repère ce chemin avec l'url /date
+3. On retourne la date et l'heure au moment où le serveur traite la requête, donc elle change à chaque appel
+5. Son absence ne change rien sur telnet et sur le navigateur. Par contre, rien ne s'affiche sur le navigateur s'il a une mauvaise valeur.
+6. Ils sont interprétés correctement par les clients
+7. Erreur 404 car ces URL n'existent pas encore
+8. Oui
+10. Il faut réfléchir à un meilleur moyen de gérer les routes que les actuels if elif else. On peut utiliser un Framework web pour cela, pour éviter de réécrire des choses qui existent déjà
