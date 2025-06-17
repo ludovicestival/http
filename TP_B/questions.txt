@@ -59,7 +59,7 @@ Partie 2
 2.3.2
 1. GET /date HTTP/1.1; on repère ce chemin avec l'url /date
 3. On retourne la date et l'heure au moment où le serveur traite la requête, donc elle change à chaque appel
-5. Son absence ne change rien sur telnet et sur le navigateur. Par contre, rien ne s'affiche sur le navigateur s'il a une mauvaise valeur.
+4 & 5. Content-Length est indispensable. Son absence ne change rien sur telnet. Par contre, rien ne s'affiche sur le navigateur s'il a une mauvaise valeur.
 6. Ils sont interprétés correctement par les clients
 7. Erreur 404 car ces URL n'existent pas encore
 8. Oui
