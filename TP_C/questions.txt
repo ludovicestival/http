@@ -1,0 +1,48 @@
+Partie 1
+
+1.3
+Méthode: GET
+Statuts: 200
+Le champ Host sert à indiquer le domaine qui nous intéresse
+
+Partie 2
+
+2.2
+Option -I: affiche uniquement les en-têtes
+Option -L: affiche uniquement le contenu HTML
+
+Partie 3
+
+3.2
+Pas de code de retour
+Content-Type: application/json
+La réponse du serveur est bien formatée en JSON
+En-têtes: metadata sur la requête
+Corps: contenu réel de la requête
+
+Partie 4
+
+4.2.1
+r.headers : requests.structures.CaseInsensitiveDict
+json : dictionnaire Python classique
+
+En utilisation r.text, on obtient le dictionnaire JSON mais sous forme de string
+
+Notre user-agent n'est plus le navigateur web mais python-requests/2.25.1
+
+4.2.2
+https://httpbin.org/get?pseudo=roger&canal=coincoin
+
+Les paramètres sont visibles dans la réponse
+
+4.2.3
+Avec data, les données sont passées dans l'URL de la page. Cela n'est pas le cas avec json.
+
+Content-Type: application/json
+
+4.2.4
+L'en-tête X-CanaDuck est bien affiché dans la réponse
+
+4.3
+L'avantage principal est que l'on peut facilement faire un script qui réponde à notre besoin contrairement aux autres outils
+
